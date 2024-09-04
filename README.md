@@ -1,0 +1,1 @@
+Built with React.js frontend, node.js with Express backend, MongoDB database
