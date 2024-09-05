@@ -1,9 +1,11 @@
 import express from "express";
 import { connectDB } from './database/index.js';
 
-import { Document } from './models/Document';
+import Document from './models/Document.js';
 
 const app = express();
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("This is the WI Writer backend/API.");
