@@ -20,6 +20,10 @@ const documentSchema = new mongoose.Schema({
     type: Number, 
     default: 0 
   },
+  show: {
+    type: Boolean,
+    default: true
+  },
 }, { timestamps: true });
 
 const Document = mongoose.model('Document', documentSchema);
