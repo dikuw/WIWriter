@@ -4,6 +4,7 @@ import { connectDB } from './database/index.js';
 import documentRoutes from './routes/documentRoutes.js';
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -13,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", documentRoutes);
 
-app.listen(5000, () => {
+app.listen(port, () => {
   connectDB();
-  console.log("Server started at http://localhost:5000");
+  console.log(`Server started at http://localhost:${port}`);
 });
