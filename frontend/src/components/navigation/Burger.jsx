@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import NavMenu from './NavMenu';
 import AdminNavMenu from './AdminNavMenu';
@@ -35,8 +36,9 @@ const StyledBurger = styled.div`
 
 export default function Burger(props) {
   const [menuOpen, setOpen] = useState(false);
-  // const currentRoute = props.history.location.pathname;
-  const currentRoute = "/admin";
+  const location = useLocation(); // Use useLocation hook to get the current route
+  const currentRoute = location.pathname;
+
   return (
     <>
       <StyledBurger menuOpen={menuOpen} onClick={() => setOpen(!menuOpen)}>
@@ -45,9 +47,9 @@ export default function Burger(props) {
         <div />
       </StyledBurger>
       {(currentRoute === "/admin" || currentRoute === "/orders" || currentRoute === "/inventory" || currentRoute === "/shippingOptions") ? (
-          <AdminNavMenu isLoggedIn={props.isLoggedIn} isAdmin={props.isAdmin} history={props.history} menuOpen={menuOpen} setOpen={setOpen} />
+          <AdminNavMenu isLoggedIn={props.isLoggedIn} isAdmin={props.isAdmin} menuOpen={menuOpen} setOpen={setOpen} />
         ) : (
-          <NavMenu isLoggedIn={props.isLoggedIn} isAdmin={props.isAdmin} history={props.history} menuOpen={menuOpen} setOpen={setOpen} getCartItemCount={props.getCartItemCount} logoutUser={props.logoutUser} />
+          <NavMenu isLoggedIn={props.isLoggedIn} isAdmin={props.isAdmin} menuOpen={menuOpen} setOpen={setOpen} getCartItemCount={props.getCartItemCount} logoutUser={props.logoutUser} />
        )
       }
     </>
