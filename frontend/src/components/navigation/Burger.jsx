@@ -36,7 +36,7 @@ const StyledBurger = styled.div`
 
 export default function Burger(props) {
   const [menuOpen, setOpen] = useState(false);
-  const location = useLocation(); // Use useLocation hook to get the current route
+  const location = useLocation();
   const currentRoute = location.pathname;
 
   return (
