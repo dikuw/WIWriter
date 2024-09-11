@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 export default function Header() {
   return (
     <StyledDiv>
-      Logo goes here: <Logo />
+      <Logo />
     </StyledDiv>
   );
 }
