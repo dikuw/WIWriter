@@ -41,7 +41,7 @@ export default function Burger(props) {
 
   return (
     <>
-      <StyledBurger menuOpen={menuOpen} onClick={() => setOpen(!menuOpen)}>
+      <StyledBurger onClick={() => setOpen(!menuOpen)}>
         <div />
         <div />
         <div />
