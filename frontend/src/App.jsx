@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react'
 
 import './styles/styles.css';
@@ -18,6 +18,8 @@ function App(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isPasswordIncorrect, setIsPasswordIncorrect] = useState(false);
 
+  const navigate = useNavigate(); 
+
   const logoutUser = async (user) => {
     const payload = { ...user };
     await apis.logout(payload).then(res => {
@@ -25,7 +27,7 @@ function App(props) {
       setUserOrders([]);
       setOrders([]);
       setCart([]);
-      props.history.push("/");
+      navigate("/");
     });
   }
 
@@ -38,8 +40,8 @@ function App(props) {
           element={
             <>
               <Banner bannerString={"Site Administration"} />
-              <Navigation isLoggedIn={isLoggedIn} isAdmin={user.isAdmin} history={props.history} logoutUser={logoutUser} />
-              <Admin history={props.history} />
+              <Navigation isLoggedIn={isLoggedIn} isAdmin={user.isAdmin} logoutUser={logoutUser} />
+              <Admin />
             </>
           }
         />
@@ -48,4 +50,4 @@ function App(props) {
   );
 }
 
-export default App
+export default App;
