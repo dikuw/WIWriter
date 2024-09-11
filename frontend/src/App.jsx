@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 
+import './styles/styles.css';
+
 import TopBanner from './components/header/TopBanner';
 import Header from './components/header/Header';
 import Banner from './components/header/Banner';
