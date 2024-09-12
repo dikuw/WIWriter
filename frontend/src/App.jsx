@@ -8,6 +8,7 @@ import Header from './components/header/Header';
 import Banner from './components/header/Banner';
 import Navigation from './components/navigation/Navigation';
 import Admin from './components/admin/Admin';
+import Footer from './components/Footer';
 
 function App(props) {
   const [user, setUser] = useState({
@@ -46,6 +47,7 @@ function App(props) {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
