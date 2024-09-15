@@ -11,10 +11,11 @@ const StyledGrid = styled.div`
 `;
 
 export default function Grid(props) {
+  console.log("documents:", props.documents);
   return (
     <StyledGrid>
-      {Object.values(props.documents).map((item) => 
-        <Card key={item.id} index={item.id} item={item} />
+      {props.documents.map((item) => 
+        <Card key={item._id} index={item._id} item={item} />
       )}
     </StyledGrid>
   )

@@ -28,7 +28,6 @@ const StyledWrapperDiv = styled.div`
   }
 `;
 
-
 export default function NewDocument(props) {
   const [newDocument, setNewDocument] = useState({
     number: "",
@@ -41,6 +40,11 @@ export default function NewDocument(props) {
   const addClick = async (event) => {
     event.preventDefault();
     await createDocument(newDocument);
+    setNewDocument({
+      number: "",
+      title: "",
+      description: "",
+    });
   };
 
   return (

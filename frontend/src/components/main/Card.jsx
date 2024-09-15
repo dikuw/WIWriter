@@ -15,9 +15,7 @@ const StyledGridFigure = styled.figure`
 `;
 
 export default function Card(props) {
-
   const { item } = props;
-
   return (
   <StyledGridFigure>
     <figcaption>
