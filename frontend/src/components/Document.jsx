@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { VisibleActionButton } from './shared/index';
 import { useDocumentStore } from './../store/document';
@@ -30,25 +30,43 @@ const StyledWrapperDiv = styled.div`
 
 
 export default function NewDocument(props) {
+  const [newDocument, setNewDocument] = useState({
+    number: "",
+    title: "",
+    description: "",
+  });
 
   const { createDocument } = useDocumentStore();
 
   const addClick = async (event) => {
     event.preventDefault();
-    const document = {
-      number: "009",
-      title: "test title 9",
-      description: "test description 9",
-    };
-    await createDocument(document);
+    await createDocument(newDocument);
   };
 
   return (
     <StyledWrapperDiv>
       <form onSubmit={addClick}>
-        <input name="number" type="text" placeholder={"Number"} />
-        <input name="title" type="text" placeholder={"Title"} />
-        <input name="description" type="text" placeholder={"Description"} />
+        <input 
+          name="number" 
+          type="text" 
+          placeholder={"Number"} 
+          value={newDocument.number}
+          onChange={(e) => setNewDocument({...newDocument, number: e.target.value})}
+        />
+        <input 
+          name="title" 
+          type="text" 
+          placeholder={"Title"} 
+          value={newDocument.title}
+          onChange={(e) => setNewDocument({...newDocument, title: e.target.value})}
+        />
+        <input 
+          name="description" 
+          type="text" 
+          placeholder={"Description"} 
+          value={newDocument.description}
+          onChange={(e) => setNewDocument({...newDocument, description: e.target.value})}
+        />
         <VisibleActionButton type="submit" buttonLabel={"Add"} />
       </form>
     </StyledWrapperDiv>
