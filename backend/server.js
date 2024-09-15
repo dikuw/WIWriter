@@ -1,4 +1,5 @@
-import express from "express";
+import express from 'express';
+import cors from 'cors';
 import { connectDB } from './database/index.js';
 
 import documentRoutes from './routes/documentRoutes.js';
@@ -12,7 +13,10 @@ app.get("/", (req, res) => {
   res.send("This is the WI Writer backend/API.");
 });
 
-app.use("/api", documentRoutes);
+//  enable CORS for all origins to allow development with local server
+app.use(cors({credentials: true, origin: process.env.ORIGIN}));
+
+app.use("/api", documentRoutes);;
 
 app.listen(port, () => {
   connectDB();
