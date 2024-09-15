@@ -1,5 +1,5 @@
 import express from 'express';
-import { userController } from '../controllers/userController';
+import { userController } from '../controllers/userController.js';
 
 // // start from Hely, maybe want to add this in the future
 // const passport = require('passport');
