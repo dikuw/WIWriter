@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//  TODO
-// import logo from '../../logo.svg';
+import logo from '../../logo.svg';
 
 const LogoImage = styled.img`
   display: block;
-  width: 500px;
+  width: 100px;
   margin: auto;
   padding: 15px;
 `;
@@ -14,7 +13,7 @@ const LogoImage = styled.img`
 export default function Logo() {
   return (
     <a href="/">
-      <LogoImage src={null} alt="WI Writer dot com" />
+      <LogoImage src={logo} alt="WI Writer dot com" />
     </a>
   );
 };
