@@ -1,6 +1,7 @@
 import React, { useRef }  from 'react';
 import styled from 'styled-components';
 import { InvisibleActionButton, VisibleActionButton } from '../shared/index';
+import { useUserStore } from '../../store/user';
 
 const StyledWrapperDiv = styled.div`
   max-width: 1200px;
@@ -35,6 +36,9 @@ const StyledWarningDiv = styled.div`
 `;
 
 export default function Register(props) {
+
+  const { registerUser } = useUserStore();
+  
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -84,7 +88,7 @@ export default function Register(props) {
     return passVal;
   }
 
-  const registerClick = (event) => {
+  const registerClick = async (event) => {
     event.preventDefault();
     if (validateForm()) {
       const user = {
@@ -93,7 +97,8 @@ export default function Register(props) {
         password: passwordRef.current.value,
         confirmPassword: confirmPasswordRef.current.value,
       };
-      props.registerUser(user);
+      await registerUser(user);
+      // props.registerUser(user);
       event.currentTarget.reset();
     }
   };
