@@ -6,8 +6,8 @@ const StyledFooter = styled.footer`
   flex-flow: row wrap;
   padding: 30px 30px 0px 30px;
   color: var(--almostWhite);
-  background-color: var(--gray);
-  border-top: 1px solid var(--gray);
+  background-color: var(--primary);
+  border-top: 1px solid var(--primary);
   font-size: 0.8rem;
   ul {
     list-style: none;

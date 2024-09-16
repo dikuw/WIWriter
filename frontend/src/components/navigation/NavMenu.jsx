@@ -37,7 +37,7 @@ const Li = styled.li`
   height: 100%;
   @media (min-width: 768px) {
     :hover {
-      background-color: var(--gray);
+      background-color: var(--primary);
     }
   }
 `;

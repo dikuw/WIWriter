@@ -7,7 +7,7 @@ const StyledGridFigure = styled.figure`
   flex-shrink: 0;
   margin: 0 2rem 2rem 2rem;
   padding: 2rem;
-  border: 1px solid lightgray;
+  border: 1px solid var(--primary);
   background: var(--almostWhite);
   box-shadow: 0 0 0 5px rgba(0,0,0,0.03);
   position: relative;

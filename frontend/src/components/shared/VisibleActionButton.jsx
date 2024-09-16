@@ -6,8 +6,8 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   font-weight: 400;
   font-style: normal;
-  background: var(--gray);
-  border-color: var(--gray);
+  background: var(--primary);
+  border-color: var(--primary);
   border-radius: 2px;
   border: 0;
   color: #ffffff;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledBannerDiv = styled.div`
   width: 100%;
   color: var(--almostWhite);
-  background-color: var(--gray);
+  background-color: var(--primary);
   text-transform: uppercase;
   font-size: 0.9em;
   font-weight: 400;
