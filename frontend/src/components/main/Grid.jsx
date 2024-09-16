@@ -11,7 +11,6 @@ const StyledGrid = styled.div`
 `;
 
 export default function Grid(props) {
-  console.log("documents:", props.documents);
   return (
     <StyledGrid>
       {props.documents.map((item) => 

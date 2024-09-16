@@ -19,6 +19,8 @@ export default function Card(props) {
   return (
   <StyledGridFigure>
     <figcaption>
+      <p>{item.number}</p>
+      <p>{item.title}</p>
       <p>{item.description}</p>
     </figcaption>
   </StyledGridFigure>
