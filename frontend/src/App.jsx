@@ -10,12 +10,13 @@ import Header from './components/header/Header';
 import Banner from './components/header/Banner';
 import Navigation from './components/navigation/Navigation';
 import Register from './components/login/Register';
+import LocalLogin from './components/login/LocalLogin';
 import Grid from './components/main/Grid';
 import NewDocument from './components/Document';
 import Admin from './components/admin/Admin';
 import Footer from './components/Footer';
 
-function App(props) {
+function App() {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -36,9 +37,6 @@ function App(props) {
     const payload = { ...user };
     await apis.logout(payload).then(res => {
       setIsLoggedIn(false);
-      setUserOrders([]);
-      setOrders([]);
-      setCart([]);
       navigate("/");
     });
   }
@@ -64,6 +62,21 @@ function App(props) {
               <Banner bannerString={"Register a New Account"} />
               <Register 
                 isLoggedIn={isLoggedIn} 
+              />
+            </>
+          }
+        />
+        <Route path="/login" 
+          element={
+            <>
+              <Navigation isLoggedIn={isLoggedIn} isAdmin={user.isAdmin} logoutUser={logoutUser} />
+              <Banner bannerString={"Log In"} />
+              <LocalLogin
+                // isLoggedIn={isLoggedIn} 
+                // isPasswordIncorrect={isPasswordIncorrect}
+                // resetPasswordIncorrect={resetPasswordIncorrect}
+                // loginUser={loginUser}
+                // forgotUser={forgotUser} 
               />
             </>
           }
