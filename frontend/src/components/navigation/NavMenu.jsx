@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Ul = styled.ul`
@@ -36,7 +37,7 @@ const Li = styled.li`
   height: 100%;
   @media (min-width: 768px) {
     :hover {
-      background-color: var(--rosaVieja);
+      background-color: var(--gray);
     }
   }
 `;
@@ -52,11 +53,12 @@ const Link = styled.a`
 `;
 
 export default function NavMenu(props) {
+  const navigate = useNavigate();
 
   const handleClick = (link, menuOpen) => {
-    props.setOpen(!menuOpen)
-    props.history.push(link);
-  }
+    props.setOpen(!menuOpen);
+    navigate(link);
+  };
  
   return (
     <Ul menuOpen={props.menuOpen}>
