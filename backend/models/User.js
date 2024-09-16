@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     trim: true,
-    validate: [validator.isEmail, 'Please enter a valid email'],
+    // validate: [validator.isEmail, 'Please enter a valid email'],
     required: 'Please enter an email address'
   },
   name: {
@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 export default User;
+
 // // start from Hely, maybe want to add this in the future
 // userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 // userSchema.plugin(mongodbErrorHandler);

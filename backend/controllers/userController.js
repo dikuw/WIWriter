@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { User } from '../models/User.js';
+import User from '../models/User.js';
 
-exports.getCurrentUser = async (req, res) => {
+export const getCurrentUser = async (req, res) => {
   if (req.user) {
     res.json({ user: req.user });
   } else {
@@ -9,7 +9,7 @@ exports.getCurrentUser = async (req, res) => {
   };
 };
 
-exports.validateRegister = (req, res, next) => {
+export const validateRegister = async (req, res, next) => {
   req.sanitizeBody('name');
   req.checkBody('name', 'Please enter a name').notEmpty();
   req.checkBody('email', 'Please enter a valid email').isEmail();
@@ -30,7 +30,7 @@ exports.validateRegister = (req, res, next) => {
   next();
 };
 
-exports.checkAlreadyRegistered = async (req, res, next) => {
+export const checkAlreadyRegistered = async (req, res, next) => {
   const registered = await User.find({ email: req.body.email });
   if (registered[0] && registered[0]._id) {
     res.json( { error: 'That email is already registered!' });
@@ -39,7 +39,7 @@ exports.checkAlreadyRegistered = async (req, res, next) => {
   next();
 }
 
-exports.register = async (req, res, next) => {
+export const register = async (req, res) => {
   const user = new User({ 
     email: req.body.email, 
     name: req.body.name,
@@ -49,7 +49,7 @@ exports.register = async (req, res, next) => {
   next();
 };
 
-exports.findOrCreate = async (req, res, next) => {
+export const findOrCreate = async (req, res, next) => {
   const registered = await User.find({ email: req.body.email });
   if (registered[0] && registered[0]._id) {
     next();
@@ -69,7 +69,7 @@ exports.findOrCreate = async (req, res, next) => {
 // };
 // // end from Hely
 
-exports.updateAccount = async (req, res) => {
+export const updateAccount = async (req, res) => {
   let updates = {
     name: req.body.name,
     email: req.body.email,
