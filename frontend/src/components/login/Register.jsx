@@ -1,4 +1,5 @@
 import React, { useRef }  from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { InvisibleActionButton, VisibleActionButton } from '../shared/index';
 import { useUserStore } from '../../store/user';
@@ -36,6 +37,7 @@ const StyledWarningDiv = styled.div`
 `;
 
 export default function Register(props) {
+  const navigate = useNavigate();
 
   const { registerUser } = useUserStore();
   
@@ -104,7 +106,7 @@ export default function Register(props) {
   };
 
   const goBack = () => {
-    props.history.push("/login");
+    navigate("/login");
   };
 
   return (
