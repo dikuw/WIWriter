@@ -32,20 +32,6 @@ function App(props) {
 
   const navigate = useNavigate(); 
 
-  const registerUser = async (user) => {
-    const payload = { ...user };
-    await apis.register(payload).then(res => {
-      if (res.data.email) {
-        setIsLoggedIn(true);
-        props.history.push("/");
-      } else {
-        //  TODO Surface errors to user (e.g. account is already registered)
-        //  🏭 🏭 🏭 🏭 🏭 🏭
-        console.log('error', res);
-      }
-    });
-  }
-
   const logoutUser = async (user) => {
     const payload = { ...user };
     await apis.logout(payload).then(res => {
@@ -77,7 +63,6 @@ function App(props) {
               <Navigation isLoggedIn={isLoggedIn} isAdmin={user.isAdmin} logoutUser={logoutUser} />
               <Banner bannerString={"Register a New Account"} />
               <Register 
-                registerUser={registerUser}
                 isLoggedIn={isLoggedIn} 
               />
             </>
