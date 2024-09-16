@@ -1,11 +1,13 @@
 import express from 'express';
-import { register } from '../controllers/userController.js';
+import { addUser, register } from '../controllers/userController.js';
 
 // // start from Hely, maybe want to add this in the future
 // const passport = require('passport');
 // // end from Hely
 
 const router = express.Router();
+
+router.post("/addUser", addUser);
 
 //  ** User Routes **  //
 // router.get('/getUser', userController.getCurrentUser);
