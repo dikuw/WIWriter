@@ -99,7 +99,7 @@ export default function Register(props) {
       };
       await registerUser(user);
       // props.registerUser(user);
-      event.currentTarget.reset();
+      // event.currentTarget.reset();
     }
   };
 

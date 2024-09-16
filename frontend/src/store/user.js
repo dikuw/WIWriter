@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
 export const useUserStore = create((set) => ({
-  user: [],
+  users: [],
   setUsers: (users) => set({ users }),
   registerUser: async (newUser) => {
-    const res = await fetch("/api/register", {
+    const res = await fetch("/api/users/addUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
