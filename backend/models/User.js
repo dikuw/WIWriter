@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+export default User;
 // // start from Hely, maybe want to add this in the future
 // userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 // userSchema.plugin(mongodbErrorHandler);

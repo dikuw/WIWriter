@@ -30,15 +30,4 @@ router.get('/auth/twitter/callback', authController.login);
 router.post('/logout', authController.logout);
 router.post('/forgot', authController.forgot);
 
-// start from Hely, maybe want to add this in the future, but docs instead of orders
-//  ** Order Routes **  //
-//  GET
-// router.get('/getOrders', orderController.getOrders);
-// router.get('/getUserOrders/:id', orderController.getUserOrders);
-// //  CREATE
-// router.post('/postOrder', orderController.postOrder);
-// //  UPDATE
-// router.put('/putOrder', orderController.putOrder);
-// end from Hely
-
 module.exports = router;

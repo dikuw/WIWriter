@@ -4,7 +4,7 @@ export const useDocumentStore = create((set) => ({
   documents: [],
   setDocuments: (documents) => set({ documents }),
   createDocument: async (newDocument) => {
-    const res = await fetch("/api/addDocument", {
+    const res = await fetch("/api/documents/addDocument", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const useDocumentStore = create((set) => ({
     set((state) => ({ documents: [...state.documents, data.data] }));
   },
   getDocuments: async () => {
-    const res = await fetch("/api/getDocuments", {
+    const res = await fetch("/api/documents/getDocuments", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
